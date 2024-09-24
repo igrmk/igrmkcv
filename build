@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+max_print_line=200 xelatex -output-driver="xdvipdfmx -z 0" igrmk.tex
+pdftoppm -singlefile -png -r 300 igrmk.pdf igrmk

@@ -1,0 +1,53 @@
+---
+name: Build CV
+
+'on': {push: {tags: ['v*']}}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Install packages
+        run: |
+          sudo apt update
+          sudo apt install -y fonts-inter fonts-font-awesome poppler-utils texlive-xetex texlive-fonts-extra
+
+      - name: Build artefacts
+        run: ./build
+
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: "Release ${{ github.ref }}"
+          draft: false
+          prerelease: false
+
+      - name: Upload PDF to the release
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: igrmk.pdf
+          asset_name: igrmk.pdf
+          asset_content_type: application/pdf
+
+      - name: Upload PNG to the release
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: igrmk.png
+          asset_name: igrmk.png
+          asset_content_type: image/png
