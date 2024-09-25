@@ -38,7 +38,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: igrmk.pdf
+          asset_path: output/igrmk.pdf
           asset_name: igrmk.pdf
           asset_content_type: application/pdf
 
@@ -48,6 +48,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: igrmk.png
+          asset_path: output/igrmk.png
           asset_name: igrmk.png
           asset_content_type: image/png

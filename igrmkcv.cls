@@ -29,7 +29,12 @@
 \colorlet{accentColor}{accentColor}
 \definecolor{outlineColor}{RGB}{213, 213, 213}
 \colorlet{outlineColor}{outlineColor}
-\newcommand{\cvRatingMarker}{\raisebox{0.25ex}{\tiny\faCircle}}
+\newcommand{\cvRatingMarker}{\raisebox{1.25pt}{\scalebox{0.6}{\faCircle}}}
+\newcommand{\cvMarkerSpacing}{4pt}
+\newcommand{\cvSetRating}[2]{%
+    \renewcommand{\cvRatingMarker}{#1}
+    \renewcommand{\cvMarkerSpacing}{#2}
+}
 
 \newenvironment{fullwidth}{%
     \begin{adjustwidth}{}{\dimexpr-\marginparwidth-\marginparsep\relax}}
@@ -166,7 +171,7 @@
                 \color{accentColor}%
             \fi
             \cvRatingMarker%
-            \hspace{4pt}%
+            \hspace{\cvMarkerSpacing}%
         }%
     }%
     \par%
