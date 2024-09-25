@@ -11,3 +11,17 @@ approach would be to fork the project and develop your own version.
 The following CV has been compiled from the `/examples/igrmk.tex` file.
 
 ![CV](https://github.com/igrmk/igrmkcv/releases/latest/download/igrmk.png)
+
+## Build your own CV
+
+1. Copy the `igrmkcv.cls` class to your CV directory, along with both files
+   from one of the examples (e.g., `igrmk.tex` and `igrmk.xmpdata`). Rename
+   them to, say, `john.doe.tex` and `john.doe.xmpdata`.
+
+2. Customize both files according to your own experience.
+
+3. Run the following command to compile the CV:
+
+   ```bash
+   xelatex -output-driver="xdvipdfmx -z 0" john.doe.tex
+   ```
