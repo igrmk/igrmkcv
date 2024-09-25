@@ -21,33 +21,10 @@ jobs:
       - name: Build artefacts
         run: ./build
 
-      - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Release
+        uses: softprops/action-gh-release@v2
         with:
-          tag_name: ${{ github.ref }}
-          release_name: "Release ${{ github.ref }}"
-          draft: false
-          prerelease: false
-
-      - name: Upload PDF to the release
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: output/igrmk.pdf
-          asset_name: igrmk.pdf
-          asset_content_type: application/pdf
-
-      - name: Upload PNG to the release
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: output/igrmk.png
-          asset_name: igrmk.png
-          asset_content_type: image/png
+          files: |
+            igrmkcv.cls
+            output/igrmk.pdf
+            output/igrmk.png
