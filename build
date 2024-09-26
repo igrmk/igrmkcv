@@ -8,6 +8,7 @@ export TEXINPUTS=./examples:./output:
 max_print_line=200 xelatex -output-driver="xdvipdfmx -z 0" -output-directory output examples/igrmk.tex
 
 if [[ "${1:-}" == "all" ]]; then
+	max_print_line=200 xelatex -output-driver="xdvipdfmx -z 0" -output-directory output examples/igrmk-net.tex
 	max_print_line=200 xelatex -output-driver="xdvipdfmx -z 0" -output-directory output examples/igrmk-cpp.tex
 	max_print_line=200 xelatex -output-driver="xdvipdfmx -z 0" -output-directory output examples/igrmk-python.tex
 fi
