@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+export TEXMFHOME=.venv
+[[ -d ".venv" ]] || tlmgr init-usertree
+# shellcheck disable=SC2046
+tlmgr --usermode install $(< packages.txt)

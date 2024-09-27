@@ -10,16 +10,33 @@ jobs:
       contents: write
 
     steps:
+      - name: Install packages
+        run: |
+          set -euo pipefail
+          sudo apt update
+          sudo apt install -y fonts-inter fonts-font-awesome poppler-utils
+
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Install packages
-        run: |
-          sudo apt update
-          sudo apt install -y fonts-inter fonts-font-awesome poppler-utils texlive-xetex texlive-fonts-extra
+      - name: Install TeX Live
+        uses: teatimeguest/setup-texlive-action@v3
+        with:
+          package-file: packages.txt
+        env:
+          TEXLIVE_INSTALL_TEXMFHOME: .venv
 
       - name: Build artefacts
-        run: ./build
+        run: |
+          set -euo pipefail
+          ./build all
+          cd output
+          mv igrmk-net.pdf example-igrmk-net.pdf
+          mv igrmk-net.png example-igrmk-net.png
+          mv igrmk-hft.pdf example-igrmk-hft.pdf
+          mv igrmk-hft.png example-igrmk-hft.png
+          mv igrmk-python.pdf example-igrmk-python.pdf
+          mv igrmk-python.png example-igrmk-python.png
 
       - name: Release
         uses: softprops/action-gh-release@v2
@@ -27,5 +44,9 @@ jobs:
           name: "Release ${{ github.ref_name }}"
           files: |
             igrmkcv.cls
-            output/igrmk.pdf
-            output/igrmk.png
+            output/example-igrmk-net.pdf
+            output/example-igrmk-net.png
+            output/example-igrmk-hft.pdf
+            output/example-igrmk-hft.png
+            output/example-igrmk-python.pdf
+            output/example-igrmk-python.png

@@ -5,12 +5,18 @@ cd "$(dirname "$0")"
 mkdir -p output
 
 export TEXINPUTS=./examples:./output:
-max_print_line=200 xelatex -output-driver="xdvipdfmx -z 0" -output-directory output examples/igrmk.tex
+export TEXMFHOME=.venv
+
+build_file() {
+	max_print_line=200 xelatex -output-driver="xdvipdfmx -z 0" -output-directory output "examples/$1.tex"
+	pdftoppm -singlefile -png -r 300 "output/$1.pdf" "output/$1"
+}
+
+build_file igrmk-full
 
 if [[ "${1:-}" == "all" ]]; then
-	max_print_line=200 xelatex -output-driver="xdvipdfmx -z 0" -output-directory output examples/igrmk-net.tex
-	max_print_line=200 xelatex -output-driver="xdvipdfmx -z 0" -output-directory output examples/igrmk-cpp.tex
-	max_print_line=200 xelatex -output-driver="xdvipdfmx -z 0" -output-directory output examples/igrmk-python.tex
+	build_file igrmk-net
+	build_file igrmk-hft
+	build_file igrmk-python
 fi
 
-pdftoppm -singlefile -png -r 300 output/igrmk.pdf output/igrmk

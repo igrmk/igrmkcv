@@ -8,14 +8,14 @@ points have been removed to simplify the code, as they added complexity
 without fully meeting my needs. The result is a streamlined,
 non-customizable class. If you require more flexibility, the best
 approach would be to fork the project and develop your own version.
-The following CV has been compiled from the `/examples/igrmk.tex` file.
+The following CV has been compiled from the [examples/igrmk-net.tex](examples/igrmk-net.tex) file.
 
-![CV](https://github.com/igrmk/igrmkcv/releases/latest/download/igrmk.png)
+![CV](https://github.com/igrmk/igrmkcv/releases/latest/download/example-igrmk-net.png)
 
 ## Build your own CV
 
 1. Copy the `igrmkcv.cls` class to your CV directory, along with both files
-   from one of the examples (e.g., `igrmk.tex` and `igrmk.xmpdata`). Rename
+   from one of the examples (e.g., `igrmk-net.tex` and `igrmk-net.xmpdata`). Rename
    them to, say, `john.doe.tex` and `john.doe.xmpdata`.
 
 2. Customize both files according to your own experience.
