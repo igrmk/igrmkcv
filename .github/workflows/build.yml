@@ -10,14 +10,6 @@ jobs:
       contents: write
 
     steps:
-      - name: Restore APT cache
-        uses: actions/cache@v3
-        with:
-          path: |
-            /var/cache/apt
-            /var/lib/apt
-          key: ${{ runner.os }}-apt-cache
-
       - name: Install packages
         run: |
           set -euo pipefail
@@ -43,9 +35,4 @@ jobs:
           name: "Release ${{ github.ref_name }}"
           files: |
             igrmkcv.cls
-            output/example-igrmk-net.pdf
-            output/example-igrmk-net.png
-            output/example-igrmk-hft.pdf
-            output/example-igrmk-hft.png
-            output/example-igrmk-python.pdf
-            output/example-igrmk-python.png
+            output/*
