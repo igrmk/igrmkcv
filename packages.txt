@@ -1,4 +1,4 @@
-xetex
+collection-xetex
 iftex
 extsizes
 fontawesome5
