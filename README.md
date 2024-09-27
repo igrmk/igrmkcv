@@ -14,8 +14,9 @@ The following CV has been compiled from the [examples/igrmk-net.tex](examples/ig
 
 ## Build your own CV
 
-1. Install the Inter and FontAwesome fonts. For example, using Homebrew:
+1. Install Tectonic, along with Inter and FontAwesome fonts. For example, using Homebrew:
    ```bash
+   brew install tectonic
    brew install --cask font-inter font-fontawesome
    ```
 
