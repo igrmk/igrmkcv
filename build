@@ -2,15 +2,15 @@
 set -euo pipefail
 
 if [[ "$#" -lt 1 ]]; then
-    echo "Usage: $0 <scope: main|all> [prefix]"
+    echo "Usage: $0 <scope: full|all> [prefix]"
     exit 1
 fi
 
 scope="$1"
 prefix="${2:-}"
 
-if [[ "$scope" != "main" && "$scope" != "all" ]]; then
-	echo "Error: scope must be either 'main' or 'all'"
+if [[ "$scope" != "full" && "$scope" != "all" ]]; then
+	echo "Error: scope must be either 'full' or 'all'"
 	exit 1
 fi
 
