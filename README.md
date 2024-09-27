@@ -14,14 +14,19 @@ The following CV has been compiled from the [examples/igrmk-net.tex](examples/ig
 
 ## Build your own CV
 
-1. Copy the `igrmkcv.cls` class to your CV directory, along with both files
+1. Install the Inter and FontAwesome fonts. For example, using Homebrew:
+   ```bash
+   brew install --cask font-inter font-fontawesome
+   ```
+
+2. Copy the `igrmkcv.cls` class to your CV directory, along with both files
    from one of the examples (e.g., `igrmk-net.tex` and `igrmk-net.xmpdata`). Rename
    them to, say, `john.doe.tex` and `john.doe.xmpdata`.
 
-2. Customize both files according to your own experience.
+3. Customize both files according to your own experience.
 
-3. Run the following command to compile the CV:
+4. Run the following command to compile the CV:
 
    ```bash
-   xelatex -output-driver="xdvipdfmx -z 0" john.doe.tex
+   tectonic john.doe.tex
    ```

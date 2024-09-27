@@ -1,15 +1,30 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+if [[ "$#" -lt 1 ]]; then
+    echo "Usage: $0 <scope: main|all> [prefix]"
+    exit 1
+fi
+
+scope="$1"
+prefix="${2:-}"
+
+if [[ "$scope" != "main" && "$scope" != "all" ]]; then
+	echo "Error: scope must be either 'main' or 'all'"
+	exit 1
+fi
+
 cd "$(dirname "$0")"
 mkdir -p output
 
-export TEXINPUTS=./examples:./output:
-export TEXMFHOME=.venv
-
 build_file() {
-	max_print_line=200 xelatex -output-driver="xdvipdfmx -z 0" -output-directory output "examples/$1.tex"
-	pdftoppm -singlefile -png -r 300 "output/$1.pdf" "output/$1"
+	tectonic -Z search-path=. -o output "examples/$1.tex"
+
+	if [[ -n "$prefix" ]]; then
+		mv "output/$1.pdf" "output/$prefix-$1.pdf"
+	fi
+
+	pdftoppm -singlefile -png -r 300 "output/${prefix:+$prefix-}$1.pdf" "output/${prefix:+$prefix-}$1"
 }
 
 build_file igrmk-full

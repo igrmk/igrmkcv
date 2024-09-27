@@ -19,24 +19,15 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Install TeX Live
-        uses: teatimeguest/setup-texlive-action@v3
+      - name: Install Tectonic
+        uses: wtfjoke/setup-tectonic@v3
         with:
-          package-file: packages.txt
-        env:
-          TEXLIVE_INSTALL_TEXMFHOME: .venv
+          github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build artefacts
         run: |
           set -euo pipefail
-          ./build all
-          cd output
-          mv igrmk-net.pdf example-igrmk-net.pdf
-          mv igrmk-net.png example-igrmk-net.png
-          mv igrmk-hft.pdf example-igrmk-hft.pdf
-          mv igrmk-hft.png example-igrmk-hft.png
-          mv igrmk-python.pdf example-igrmk-python.pdf
-          mv igrmk-python.png example-igrmk-python.png
+          ./build all example
 
       - name: Release
         uses: softprops/action-gh-release@v2
