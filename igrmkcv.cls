@@ -9,7 +9,7 @@
 \RequirePackage{fontawesome5}
 \RequirePackage{fontspec}
 \RequirePackage{tikz}
-\RequirePackage[skins]{tcolorbox} % Needed for fill overzoom image
+\RequirePackage[skins]{tcolorbox} % Needed for `fill overzoom image` feature
 \RequirePackage[inline]{enumitem}
 
 \usetikzlibrary{arrows}
@@ -135,7 +135,7 @@
         {2}
         {0pt}
         {4pt}
-        {6pt} % since they appear consecutively without additional text following them
+        {6pt} % Increased spacing as these events occur consecutively without intervening text
         {\normalfont\normalsize}
         *{%
             \title%
