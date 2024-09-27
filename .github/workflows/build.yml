@@ -10,6 +10,14 @@ jobs:
       contents: write
 
     steps:
+      - name: Restore APT cache
+        uses: actions/cache@v3
+        with:
+          path: |
+            /var/cache/apt
+            /var/lib/apt
+          key: ${{ runner.os }}-apt-cache
+
       - name: Install packages
         run: |
           set -euo pipefail
