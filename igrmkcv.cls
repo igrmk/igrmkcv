@@ -25,7 +25,7 @@
 
 \definecolor{secondaryTextColor}{RGB}{115, 115, 115}
 \colorlet{secondaryTextColor}{secondaryTextColor}
-\definecolor{accentColor}{RGB}{94, 80, 215}
+\definecolor{accentColor}{RGB}{40, 102, 225}
 \colorlet{accentColor}{accentColor}
 \definecolor{outlineColor}{RGB}{213, 213, 213}
 \colorlet{outlineColor}{outlineColor}
