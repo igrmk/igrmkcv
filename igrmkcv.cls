@@ -22,6 +22,7 @@
 \setlist{leftmargin=*,labelsep=0.5em,nosep,itemsep=0.15\baselineskip,after=\vspace{0.25\baselineskip}}
 \setlist[itemize]{label={\small\textbullet}}
 \setlength{\parindent}{0pt}
+\pagenumbering{gobble}
 
 \definecolor{secondaryTextColor}{RGB}{115, 115, 115}
 \colorlet{secondaryTextColor}{secondaryTextColor}

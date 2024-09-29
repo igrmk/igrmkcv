@@ -1,16 +1,17 @@
 \let\pdfcreationdate=\creationdate
 \documentclass[9pt,a4paper]{igrmkcv}
-\geometry{left=1.25cm, right=1.25cm, top=1.5cm, bottom=1.5cm, columnsep=0.5cm}
+\geometry{left=1.25cm, right=1.25cm, top=1.5cm, bottom=1.7cm, columnsep=0.5cm}
 \usepackage{paracol}
 \usepackage[newcommands]{ragged2e}
+\usepackage{fancyhdr}
+
 \hypersetup{colorlinks, urlcolor=accentColor}
 \columnratio{0.67}
-
-\cvSetRating
-    {\raisebox{1.25pt}{\scalebox{0.5}{\faCircle}}}
-    {3pt}
+\fancyfoot[C]{\makebox[\textwidth]{\footnotesize --- More available, but everyone reads the first page ---}}
+\renewcommand{\headrule}{}
 
 \begin{document}
+\thispagestyle{fancy}
 
 \makeCvHeader
     {Igor Mikushkin}
@@ -22,7 +23,7 @@
 \cvLeftSection{\faUser}{Profile}
     20 years in tech, leading fast-paced development.
     A polyglot programmer, recently focused on .NET and Python.
-    Driven by an engineering approach, I solve challenges by building tools.
+    Advocate of an engineering approach, solving challenges by building tools.
     Currently on a Skilled Worker visa.
 
 \cvLeftSection{\faBriefcase}{Experience}
@@ -129,10 +130,10 @@
 
 \cvRightSection{Skills}
     \cvSkill{Python}{5}
-    \cvSkill{C++ / STL / Boost}{5}
     \cvSkill{Algorithmic Trading}{5}
     \cvSkill{NumPy}{5}
     \cvSkill{Pandas}{5}
+    \cvSkill{C++ / STL / Boost}{5}
     \cvSkill{Template Metaprogramming}{5}
     \cvSkill{Docker}{5}
     \cvSkill{C\# / .NET}{5}

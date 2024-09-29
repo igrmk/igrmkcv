@@ -9,10 +9,14 @@ fi
 scope="$1"
 prefix="${2:-}"
 
-if [[ "$scope" != "full" && "$scope" != "all" ]]; then
-	echo "Error: scope must be either 'full' or 'all'"
-	exit 1
-fi
+case "$scope" in
+  all|full|net|hft|python)
+    ;;
+  *)
+    echo "Error: scope must be one of 'all', 'full', 'net', 'hft', or 'python'"
+    exit 1
+    ;;
+esac
 
 cd "$(dirname "$0")"
 mkdir -p output
@@ -27,11 +31,18 @@ build_file() {
 	pdftoppm -singlefile -png -r 300 "output/$prefixed_name.pdf" "output/$prefixed_name"
 }
 
-build_file igrmk-full
-
-if [[ "$scope" == "all" ]]; then
-	build_file igrmk-net
-	build_file igrmk-hft
-	build_file igrmk-python
+if [[ "$scope" == "full" || "$scope" == "all" ]]; then
+	build_file igrmk-full
 fi
 
+if [[ "$scope" == "net" || "$scope" == "all" ]]; then
+	build_file igrmk-net
+fi
+
+if [[ "$scope" == "hft" || "$scope" == "all" ]]; then
+	build_file igrmk-hft
+fi
+
+if [[ "$scope" == "python" || "$scope" == "all" ]]; then
+	build_file igrmk-python
+fi
