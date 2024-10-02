@@ -6,6 +6,13 @@
 \hypersetup{colorlinks, urlcolor=accentColor}
 \columnratio{0.67}
 
+\setromanfont{Inter}[
+    Extension      = .otf,
+    UprightFont    = *-Regular,
+    BoldFont       = *-Bold,
+    ItalicFont     = *-Italic,
+    BoldItalicFont = *-BoldItalic]
+
 \begin{document}
 
 \makeCvHeader
@@ -15,13 +22,13 @@
 
 \begin{paracol}{2}
 
-\cvLeftSection{\faUser}{Profile}
+\cvLeftSection{\cvPersonIcon}{Profile}
     20 years in tech, leading fast-paced development.
     A polyglot programmer, recently focused on .NET.
     Advocate of an engineering approach, solving challenges by building tools.
     Currently on a Skilled Worker visa.
 
-\cvLeftSection{\faBriefcase}{Experience}
+\cvLeftSection{\cvExperienceIcon}{Experience}
     \cvLeftEvent
         {Chief Technology Officer}
         {Start From Today}
@@ -30,7 +37,7 @@
         {https://startfrom.today}
 
         \begin{itemize}
-            \item Successfully launched an online talent platform connecting individuals,
+            \item Successfully launched an online talent platform connecting people,
                   universities, and employers, with 1,500 registered companies and 8,500 users
             \item Established Scrum processes and led a development team of 10+
             \item Designed scalable and flexible microservices-based system architecture
@@ -38,7 +45,7 @@
             \item Conceptualised an API for internal teams and contractors
             \item Spent 50\% of time as a .NET engineer,
                   also contributed as a Python and React developer and technical writer
-            \item Managed cloud infrastructure of 60+ VMs and 100+ Docker containers on GCP
+            \item Administered GCP infrastructure with 60+ VMs and 100+ Docker containers
         \end{itemize}
 
     \cvLeftEvent

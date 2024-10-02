@@ -17,7 +17,6 @@ The following CV has been compiled from the [examples/igrmk-net.tex](examples/ig
 1. Install Tectonic, along with Inter and FontAwesome fonts. For example, using Homebrew:
    ```bash
    brew install tectonic
-   brew install --cask font-inter font-fontawesome
    ```
 
 2. Copy the `igrmkcv.cls` class to your CV directory, along with both files

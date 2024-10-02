@@ -11,6 +11,13 @@
 \fancyfoot[C]{\footnotesize--- Happy to provide more beyond page one ---}
 \renewcommand{\headrule}{}
 
+\setromanfont{Inter}[
+    Extension      = .otf,
+    UprightFont    = *-Regular,
+    BoldFont       = *-Bold,
+    ItalicFont     = *-Italic,
+    BoldItalicFont = *-BoldItalic]
+
 \begin{document}
 
 \makeCvHeader
@@ -19,14 +26,13 @@
     {Software Engineer, Software Architect}
 
 \begin{paracol}{2}
-
-\cvLeftSection{\faUser}{Profile}
+\cvLeftSection{\cvPersonIcon}{Profile}
     20 years in tech, leading fast-paced development.
     A polyglot programmer, recently focused on .NET and Python.
     Advocate of an engineering approach, solving challenges by building tools.
     Currently on a Skilled Worker visa.
 
-\cvLeftSection{\faBriefcase}{Experience}
+\cvLeftSection{\cvExperienceIcon}{Experience}
     \cvLeftEvent
         {Chief Technology Officer}
         {Start From Today}
@@ -35,7 +41,7 @@
         {https://startfrom.today}
 
         \begin{itemize}
-            \item Successfully launched an online talent platform connecting individuals,
+            \item Successfully launched an online talent platform connecting people,
                   universities, and employers, with 1,500 registered companies and 8,500 users
             \item Established Scrum processes and led a development team of 10+
             \item Designed scalable and flexible microservices-based system architecture
@@ -43,7 +49,7 @@
             \item Conceptualised an API for internal teams and contractors
             \item Spent 40\% of time as a Python engineer,
                   also contributed as a .NET and React developer and technical writer
-            \item Managed cloud infrastructure of 60+ VMs and 100+ Docker containers on GCP
+            \item Administered GCP infrastructure with 60+ VMs and 100+ Docker containers
         \end{itemize}
 
     \cvLeftEvent
@@ -124,7 +130,8 @@
     {
         \small
         \href{https://www.linkedin.com/in/igrmk}{https://www.linkedin.com/in/igrmk}\\
-        \href{https://github.com/igrmk}{https://github.com/igrmk}
+        \href{https://github.com/igrmk}{https://github.com/igrmk}\\
+        \href{https://www.coursera.org/learner/igrmk}{https://www.coursera.org/learner/igrmk}\\
     }
 
 \cvRightSection{Skills}
@@ -134,7 +141,7 @@
     \cvSkill{Pandas}{5}
     \cvSkill{C++ / STL / Boost}{5}
     \cvSkill{Template Metaprogramming}{5}
-    \cvSkill{Docker}{5}
+    \cvSkill{Kubernetes / Docker}{5}
     \cvSkill{C\# / .NET}{5}
     \cvSkill{PostgreSQL}{4}
     \cvSkill{Neo4j / Cypher}{4}
@@ -144,13 +151,15 @@
     \cvSkill{English}{4}
 
     \vspace{8pt}
-    \cvTag{Low Latency}
     \cvTag{Beautiful Soup}
+    \cvTag{TDD}
     \cvTag{Jupyter}
     \cvTag{CI/CD}
     \cvTag{Code Review}
+    \cvTag{Go}
     \cvTag{Kotlin}
     \cvTag{HTML}
+    \cvTag{Low Latency}
     \cvTag{Vim}
     \cvTag{JavaScript}
     \cvTag{React}
@@ -167,9 +176,7 @@
     \cvTag{Decision-making}
     \cvTag{Leadership}
     \cvTag{Strategic thinking}
-    \cvTag{Go}
     \cvTag{Terraform}
-    \cvTag{TDD}
 
 \cvRightSection{Education}
     \cvRightEvent

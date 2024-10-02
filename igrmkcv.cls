@@ -6,7 +6,6 @@
 
 \RequirePackage[a-1b]{pdfx}
 \RequirePackage[margin=2cm]{geometry}
-\RequirePackage{fontawesome5}
 \RequirePackage{fontspec}
 \RequirePackage{tikz}
 \RequirePackage[skins]{tcolorbox} % Needed for `fill overzoom image` feature
@@ -14,7 +13,6 @@
 
 \usetikzlibrary{arrows}
 
-\setmainfont{Inter}
 \linespread{1.18}
 \sloppy
 \pagestyle{empty}
@@ -30,15 +28,17 @@
 \colorlet{accentColor}{accentColor}
 \definecolor{outlineColor}{RGB}{213, 213, 213}
 \colorlet{outlineColor}{outlineColor}
+\newcommand{\cvPersonIcon}{\includegraphics[height=7.5pt]{graphics/user-solid.pdf}}
+\newcommand{\cvExperienceIcon}{\raisebox{-0.5pt}{\includegraphics[height=8pt]{graphics/briefcase-solid.pdf}}}
 \newcommand{\cvRatingMarker}{}
-\newcommand{\cvMarkerSpacing}{t}
+\newcommand{\cvMarkerSpacing}{}
 \newcommand{\cvSetRating}[2]{%
     \renewcommand{\cvRatingMarker}{#1}
     \renewcommand{\cvMarkerSpacing}{#2}
 }
 \cvSetRating
-    {\raisebox{1.25pt}{\scalebox{0.4}{\faCircle}}}
-    {3pt}
+    {\raisebox{1.7pt}{\tikz \fill[rounded corners=1pt] (0,0) rectangle (4.9pt, 2.4pt);}}
+    {1.5pt}
 
 \newenvironment{fullwidth}{%
     \begin{adjustwidth}{}{\dimexpr-\marginparwidth-\marginparsep\relax}}
@@ -82,9 +82,7 @@
         {3pt}
         {\normalfont\Large\bfseries}
         *{%
-            \raisebox{0.1ex}{\scalebox{0.65}{#1}}%
-            \hspace{0.16cm}%
-            #2
+            #1\hspace{0.16cm}#2
         }%
     \makeatother
 }
