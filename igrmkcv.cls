@@ -162,7 +162,7 @@
         inner ysep=0.75ex,
         text height=1.5ex,
         text depth=.25ex
-    ]{#1};
+    ]{#1};%
 }
 
 \newcommand{\cvSkill}[2]{%
