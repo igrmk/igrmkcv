@@ -17,7 +17,13 @@
 \sloppy
 \pagestyle{empty}
 \raggedright
-\setlist{leftmargin=*,labelsep=0.5em,nosep,itemsep=0.15\baselineskip,after=\vspace{0.25\baselineskip}}
+\setlist{
+    leftmargin=*,
+    labelsep=0.5em,
+    nosep,
+    itemsep=0.15\baselineskip,
+    after=\vspace{0.25\baselineskip}
+}
 \setlist[itemize]{label={\small\textbullet}}
 \setlength{\parindent}{0pt}
 \pagenumbering{gobble}
@@ -36,6 +42,7 @@
     \renewcommand{\cvRatingMarker}{#1}
     \renewcommand{\cvMarkerSpacing}{#2}
 }
+
 \cvSetRating
     {\raisebox{1.7pt}{\tikz \fill[rounded corners=1pt] (0,0) rectangle (4.9pt, 2.4pt);}}
     {1.5pt}
@@ -44,7 +51,7 @@
     \begin{adjustwidth}{}{\dimexpr-\marginparwidth-\marginparsep\relax}}
     {\end{adjustwidth}}
 
-\newcommand{\makeCvHeader}[3]{%
+\newcommand{\cvMakeHeader}[3]{%
     \def\name{#1}
     \def\photo{#2}
     \def\tagline{#3}
