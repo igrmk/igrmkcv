@@ -28,8 +28,8 @@
 \colorlet{accentColor}{accentColor}
 \definecolor{outlineColor}{RGB}{213, 213, 213}
 \colorlet{outlineColor}{outlineColor}
-\newcommand{\cvPersonIcon}{\raisebox{-0.1pt}{\includegraphics[height=7.5pt]{graphics/user-solid.pdf}}}
-\newcommand{\cvExperienceIcon}{\raisebox{-0.5pt}{\includegraphics[height=7.5pt]{graphics/briefcase-solid.pdf}}}
+\newcommand{\cvPersonIcon}{\raisebox{-0.1pt}{\includegraphics[height=7.5pt]{graphics/user-solid-compat.pdf}}}
+\newcommand{\cvExperienceIcon}{\raisebox{-0.5pt}{\includegraphics[height=7.5pt]{graphics/briefcase-solid-compat.pdf}}}
 \newcommand{\cvRatingMarker}{}
 \newcommand{\cvMarkerSpacing}{}
 \newcommand{\cvSetRating}[2]{%

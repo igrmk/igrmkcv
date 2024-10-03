@@ -36,9 +36,12 @@ The following CV has been compiled from the [examples/igrmk-net.tex](examples/ig
 1. Vector icons were chosen over the Font Awesome font because the font
    renders symbols, which, when copied from PDFs, appear as random Unicode
    characters. This can cause issues with Applicant Tracking Systems (ATS).
-   Instead, the necessary SVG icons were copied from their site, placed in
-   the graphics directory, and converted to PDF using the following command:
+   Instead, the required SVG icons were downloaded from their website,
+   placed in the `graphics` directory, and converted to PDF using the following commands.
+   The second command, while not strictly necessary,
+   converts PDF 1.7 to PDF 1.4 to prevent a warning.
 
    ```bash
    cairosvg icon.svg -o icon.pdf
+   gs -dCompatibilityLevel=1.4 -dPDFSETTINGS=/prepress -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -sOutputFile=icon-compat.pdf icon.pdf
    ```
