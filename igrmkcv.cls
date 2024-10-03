@@ -151,16 +151,19 @@
 }
 
 \newcommand{\cvTag}[1]{%
+    \allowbreak%
     \tikz[baseline]
     \node[
         anchor=base,
         draw=outlineColor,
         rounded corners,
-        inner xsep=1ex,
-        inner ysep=0.75ex,
+        inner xsep=0.75ex,
+        inner ysep=0.7ex,
         text height=1.5ex,
         text depth=.25ex
     ]{#1};%
+    \hspace{1.2pt}%
+    \ignorespaces%
 }
 
 \newcommand{\cvSkill}[2]{%

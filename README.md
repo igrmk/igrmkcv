@@ -19,9 +19,9 @@ The following CV has been compiled from the [examples/igrmk-net.tex](examples/ig
    brew install tectonic
    ```
 
-2. Copy the `igrmkcv.cls` class to your CV directory, along with both files
-   from one of the examples (e.g., `igrmk-net.tex` and `igrmk-net.xmpdata`). Rename
-   them to, say, `john.doe.tex` and `john.doe.xmpdata`.
+2. Copy the `igrmkcv.cls` class to your CV directory, along with graphics directory
+   and both files from one of the examples (e.g., `igrmk-net.tex` and `igrmk-net.xmpdata`).
+   Rename them to, say, `john.doe.tex` and `john.doe.xmpdata`.
 
 3. Customize both files according to your own experience.
 
