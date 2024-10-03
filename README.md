@@ -40,5 +40,5 @@ The following CV has been compiled from the [examples/igrmk-net.tex](examples/ig
    the graphics directory, and converted to PDF using the following command:
 
    ```bash
-   magick icon.svg icon.pdf
+   cairosvg icon.svg -o icon.pdf
    ```
