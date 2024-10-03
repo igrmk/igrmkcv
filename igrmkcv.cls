@@ -171,7 +171,7 @@
     \foreach \x in {1,...,5}{%
         {%
             \ifnum \x > #2
-                \color{outlineColor}%
+                \color{outlineColor!60}%
             \else
                 \color{accentColor}%
             \fi
