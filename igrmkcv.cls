@@ -151,19 +151,14 @@
 }
 
 \newcommand{\cvTag}[1]{%
-    \allowbreak%
-    \tikz[baseline]
-    \node[
-        anchor=base,
-        draw=outlineColor,
-        rounded corners,
-        inner xsep=0.75ex,
-        inner ysep=0.7ex,
-        text height=1.5ex,
-        text depth=.25ex
-    ]{#1};%
-    \hspace{1.2pt}%
-    \ignorespaces%
+    \mbox{%
+        \color{secondaryTextColor}#1
+        \raisebox{1.8pt}{%
+            \scalebox{0.5}{%
+                \color{outlineColor!40}\textbullet%
+            }%
+        }%
+    }%
 }
 
 \newcommand{\cvSkill}[2]{%
