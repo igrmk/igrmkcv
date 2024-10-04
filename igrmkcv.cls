@@ -10,6 +10,7 @@
 \RequirePackage{tikz}
 \RequirePackage[skins]{tcolorbox} % Needed for `fill overzoom image` feature
 \RequirePackage[inline]{enumitem}
+\RequirePackage{needspace}
 
 \usetikzlibrary{arrows}
 
@@ -115,6 +116,7 @@
     \def\link{#5}
 
     \makeatletter
+    \Needspace{3\baselineskip}
     \@startsection{section}
         {2}
         {0pt}
@@ -126,10 +128,13 @@
             \normalsize
             \color{secondaryTextColor}
             \ifx\company\empty\else\hspace{3pt}at \company\fi
-            \ifx\location\empty\else, \location\fi
-            \color{secondaryTextColor}
-            \ifx\date\empty\else{\\\small\date}\fi
-            \ifx\link\empty\else{\\\small\link}\fi
+            \ifx\location\empty\else, \location\fi\\[1.8pt]
+            {
+                \small
+                \color{secondaryTextColor}
+                \ifx\date\empty\else{\date\\[1pt]}\fi
+                \ifx\link\empty\else{\link\\}\fi
+            }
         }%
     \makeatother
 }
@@ -148,12 +153,12 @@
         {6pt} % Increased spacing as these events occur consecutively without intervening text
         {\normalfont\normalsize}
         *{%
-            \title%
+            \title\\
             \color{secondaryTextColor}
-            \ifx\company\empty\else\\\company\fi
-            \ifx\location\empty\else, \location\fi
+            \ifx\company\empty\else\company\fi
+            \ifx\location\empty\else, \location\fi\\[1.8pt]
             \color{secondaryTextColor}
-            \ifx\date\empty\else{\\\small\date}\fi
+            \ifx\date\empty\else{\small\date\\}\fi
         }%
     \makeatother
 }
