@@ -69,7 +69,7 @@
                 \name%
                 \par%
             }%
-            \smallskip
+            \vspace{1.5pt}
             {%
                 \large
                 \tagline
@@ -77,7 +77,8 @@
             }
         \end{minipage}%
         \par%
-    \endgroup\medskip
+    \endgroup
+    \medskip
 }
 
 \newcommand{\cvLeftSection}[2]{%
