@@ -11,13 +11,13 @@
 \RequirePackage[skins]{tcolorbox} % Needed for `fill overzoom image` feature
 \RequirePackage[inline]{enumitem}
 \RequirePackage{needspace}
+\RequirePackage{etoolbox}
 
 \usetikzlibrary{arrows}
 
 \linespread{1.18}
 \sloppy
 \pagestyle{empty}
-\raggedright
 \setlist{
     leftmargin=*,
     labelsep=0.5em,
@@ -28,6 +28,10 @@
 \setlist[itemize]{label={\small\textbullet}}
 \setlength{\parindent}{0pt}
 \pagenumbering{gobble}
+\newlength{\normalToSmallSpacingAdjustment}
+\setlength{\normalToSmallSpacingAdjustment}{-0.3pt}
+\newlength{\smallToSmallSpacingAdjustment}
+\setlength{\smallToSmallSpacingAdjustment}{-1.3pt}
 
 \definecolor{secondaryTextColor}{RGB}{115, 115, 115}
 \colorlet{secondaryTextColor}{secondaryTextColor}
@@ -92,6 +96,7 @@
         {\normalfont\Large\bfseries}
         *{%
             #1\hspace{0.16cm}#2
+            %\#\#\hspace{0.16cm}#2
         }%
     \makeatother
 }
@@ -114,9 +119,8 @@
     \def\date{#3}
     \def\location{#4}
     \def\link{#5}
-
-    \makeatletter
     \Needspace{3\baselineskip}
+    \makeatletter
     \@startsection{section}
         {2}
         {0pt}
@@ -125,15 +129,41 @@
         {\normalfont\normalsize}
         *{%
             \textbf{\title}%
-            \normalsize
             \color{secondaryTextColor}
-            \ifx\company\empty\else\hspace{3pt}at \company\fi
-            \ifx\location\empty\else, \location\fi\\[1.8pt]
+            \ifx\company\empty
+                \ifx\location\empty
+                \else
+                    \hspace{3pt}in \location
+                \fi
+            \else
+                \hspace{3pt}at \company
+                \ifx\location\empty
+                \else
+                    , \location
+                \fi
+            \fi
+            \ifx\date\empty
+                \ifx\link\empty
+                \else
+                    \\[\normalToSmallSpacingAdjustment]
+                \fi
+            \else
+                \\[\normalToSmallSpacingAdjustment]
+            \fi
             {
                 \small
-                \color{secondaryTextColor}
-                \ifx\date\empty\else{\date\\[1pt]}\fi
-                \ifx\link\empty\else{\link\\}\fi
+                \ifx\date\empty
+                \else
+                    \date
+                \fi
+                \ifx\link\empty
+                \else
+                    \ifx\date\empty
+                    \else
+                        \\[\smallToSmallSpacingAdjustment]
+                    \fi
+                    \link
+                \fi
             }
         }%
     \makeatother
@@ -150,22 +180,48 @@
         {2}
         {0pt}
         {4pt}
-        {6pt} % Increased spacing as these events occur consecutively without intervening text
+        {6pt} % Increased spacing as these events can occur consecutively without intervening text
         {\normalfont\normalsize}
         *{%
-            \title\\
+            \title
+            \ifx\company\empty
+                \ifx\location\empty
+                    \ifx\date\empty
+                    \else
+                        \\
+                    \fi
+                \else
+                    \\
+                \fi
+            \else
+                \\
+            \fi
             \color{secondaryTextColor}
-            \ifx\company\empty\else\company\fi
-            \ifx\location\empty\else, \location\fi\\[1.8pt]
-            \color{secondaryTextColor}
-            \ifx\date\empty\else{\small\date\\}\fi
+            \ifx\company\empty
+            \else
+                \company
+            \fi
+            \ifx\location\empty
+            \else
+                \ifx\company\empty
+                \else
+                    ,
+                \fi
+                \location
+            \fi
+            \ifx\date\empty
+            \else
+                \\[\normalToSmallSpacingAdjustment]
+                {\small\date}
+            \fi
         }%
     \makeatother
 }
 
 \newcommand{\cvTag}[1]{%
     \mbox{%
-        \color{secondaryTextColor}#1
+        \color{secondaryTextColor}#1%
+        \hspace{2.6pt}%
         \raisebox{1.8pt}{%
             \scalebox{0.5}{%
                 \color{outlineColor!40}\textbullet%
