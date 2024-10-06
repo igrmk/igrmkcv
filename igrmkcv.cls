@@ -28,6 +28,8 @@
 \setlist[itemize]{label={\small\textbullet}}
 \setlength{\parindent}{0pt}
 \pagenumbering{gobble}
+\newlength{\normalToNormalSpacingAdjustment}
+\setlength{\normalToNormalSpacingAdjustment}{0.3pt}
 \newlength{\normalToSmallSpacingAdjustment}
 \setlength{\normalToSmallSpacingAdjustment}{-0.3pt}
 \newlength{\smallToSmallSpacingAdjustment}
@@ -188,13 +190,13 @@
                 \ifx\location\empty
                     \ifx\date\empty
                     \else
-                        \\
+                        \\[\normalToNormalSpacingAdjustment]
                     \fi
                 \else
-                    \\
+                    \\[\normalToNormalSpacingAdjustment]
                 \fi
             \else
-                \\
+                \\[\normalToNormalSpacingAdjustment]
             \fi
             \color{secondaryTextColor}
             \ifx\company\empty
