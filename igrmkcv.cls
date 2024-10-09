@@ -23,7 +23,7 @@
     labelsep=0.5em,
     nosep,
     itemsep=0.15\baselineskip,
-    after=\vspace{0.25\baselineskip}
+    after=\vspace{0.2\baselineskip}
 }
 \setlist[itemize]{label={\small\textbullet}}
 \setlength{\parindent}{0pt}
@@ -90,7 +90,8 @@
 
 \newcommand{\cvLeftSection}[2]{%
     \makeatletter
-    \@startsection{section}
+    \@startsection
+        {section}
         {1}
         {0pt}
         {12pt}
@@ -98,14 +99,14 @@
         {\normalfont\Large\bfseries}
         *{%
             #1\hspace{0.16cm}#2
-            %\#\#\hspace{0.16cm}#2
         }%
     \makeatother
 }
 
 \newcommand{\cvRightSection}[1]{%
     \makeatletter
-    \@startsection{section}
+    \@startsection
+        {section}
         {1}
         {0pt}
         {12pt}
@@ -123,10 +124,11 @@
     \def\link{#5}
     \Needspace{3\baselineskip}
     \makeatletter
-    \@startsection{section}
+    \@startsection
+        {subsection}
         {2}
         {0pt}
-        {4pt}
+        {4.5pt}
         {2pt}
         {\normalfont\normalsize}
         *{%
@@ -178,11 +180,12 @@
     \def\location{#4}
 
     \makeatletter
-    \@startsection{section}
+    \@startsection
+        {subsection}
         {2}
         {0pt}
-        {4pt}
-        {6pt} % Increased spacing as these events can occur consecutively without intervening text
+        {4.5pt}
+        {2pt}
         {\normalfont\normalsize}
         *{%
             \title
@@ -218,6 +221,14 @@
             \fi
         }%
     \makeatother
+}
+
+\newcommand{\cvRightEventNoContent}[4]{%
+    \cvRightEvent{#1}{#2}{#3}{#4}
+    \@nobreakfalse
+    \if@afterindent \else
+        {\setbox\z@\lastbox}%
+    \fi
 }
 
 \newcommand{\cvTag}[1]{%

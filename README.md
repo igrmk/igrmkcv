@@ -15,9 +15,9 @@ The following CV has been compiled from the [examples/igrmk-net.tex](examples/ig
 ## Build your own CV
 
 1. Install Tectonic, for example, on macOS using Homebrew:
-   ```bash
+   ~~~bash
    brew install tectonic
-   ```
+   ~~~
 
 2. Copy the `igrmkcv.cls` class to your CV directory, along with `graphics` directory
    and both files from one of the examples (e.g., `igrmk-net.tex` and `igrmk-net.xmpdata`).
@@ -27,9 +27,9 @@ The following CV has been compiled from the [examples/igrmk-net.tex](examples/ig
 
 4. Run the following command to compile the CV:
 
-   ```bash
+   ~~~bash
    tectonic john.doe.tex
-   ```
+   ~~~
 
 ## Internals
 
@@ -41,7 +41,29 @@ The following CV has been compiled from the [examples/igrmk-net.tex](examples/ig
    The second command, while not strictly necessary,
    converts PDF 1.7 to PDF 1.4 to prevent a warning.
 
-   ```bash
+   ~~~bash
    cairosvg icon.svg -o icon.pdf
    gs -dCompatibilityLevel=1.4 -dPDFSETTINGS=/prepress -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -sOutputFile=icon-compat.pdf icon.pdf
-   ```
+   ~~~
+
+2. Below is a visual explanation of how LaTeX section margins function in different contexts.
+   In the figure, if A is positioned above B, it reflects their arrangement in the text.
+   The arrow from A to B indicates that A contributes its margin to the distance between A and B.
+   There are some nuances for consecutive section titles.
+   Instead of implementing this myself,
+   I used the LaTeX `@startsection` macro, which already includes this functionality.
+
+   ~~~mermaid
+   graph TD;
+       ContentBefore1(Content Before) --> Section1(Section Title);
+       Section1 --> ContentBefore1;
+
+       SectionBefore2(Section Title Before) --> SectionAfter2(Section Title After);
+
+       Section3(Section Title) --> ContentAfter3(Content After);
+       ContentAfter3(Content After) --> Section3;
+   ~~~
+
+   Since events in the CV can exist without any content,
+   I created a special event without content by copying the paragraph hook code from `ltsect.dtx`
+   to make LaTeX recognize the event (which is a subsection) as having content.
