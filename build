@@ -24,14 +24,25 @@ fi
 scope="$1"
 prefix="${2:-}"
 
-case "$scope" in
-	all|full|net|hft|python)
-		;;
-	*)
-		log_normal "Error: scope must be one of 'all', 'full', 'net', 'hft', or 'python'"
-		exit 1
-		;;
-esac
+available_cvs=(full head net hft python)
+available_scopes=("all" "${available_cvs[@]}")
+
+available_scopes_str=$(printf ", %s" "${available_scopes[@]}")
+available_scopes_str=${available_scopes_str:2}
+
+is_valid_scope() {
+	for available_scope in "${available_scopes[@]}"; do
+		if [[ "$1" == "$available_scope" ]]; then
+			return 0
+		fi
+	done
+	return 1
+}
+
+if ! is_valid_scope "$scope"; then
+	log_normal "Error: scope must be one of: $available_scopes_str"
+	exit 1
+fi
 
 cd "$(dirname "$0")"
 mkdir -p output
@@ -56,18 +67,8 @@ build_file() {
 	log_normal
 }
 
-if [[ "$scope" == "full" || "$scope" == "all" ]]; then
-	build_file igrmk-full
-fi
-
-if [[ "$scope" == "net" || "$scope" == "all" ]]; then
-	build_file igrmk-net
-fi
-
-if [[ "$scope" == "hft" || "$scope" == "all" ]]; then
-	build_file igrmk-hft
-fi
-
-if [[ "$scope" == "python" || "$scope" == "all" ]]; then
-	build_file igrmk-python
-fi
+for cv in "${available_cvs[@]}"; do
+	if [[ "$scope" == "$cv" || "$scope" == "all" ]]; then
+		build_file "igrmk-$cv"
+	fi
+done

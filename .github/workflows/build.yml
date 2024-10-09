@@ -35,6 +35,8 @@ jobs:
           name: "Release ${{ github.ref_name }}"
           files: |
             igrmkcv.cls
+            output/example-igrmk-head.pdf
+            output/example-igrmk-head.png
             output/example-igrmk-net.pdf
             output/example-igrmk-net.png
             output/example-igrmk-hft.pdf
