@@ -35,9 +35,9 @@ The following CV has been compiled from the [examples/igrmk-net.tex](examples/ig
 
 1. We don't fully understand how Applicant Tracking Systems (ATS) work, but
    it’s clear that the first step is for them to correctly parse your CV.
-   There are various parsers available. In PDFs created by \*TeX flavors,
-   spaces are not explicitly encoded in the text. As a result, multiple PDF
-   parsers and viewers must use heuristics to determine where spaces should be.
+   In PDFs created by \*TeX flavors, spaces are not explicitly encoded in the
+   text. As a result, PDF parsers and viewers must use heuristics to determine
+   where spaces should be.
 
    For instance, a parser like `mutool` handles this perfectly, while macOS
    Preview often struggles with accurately defining word, paragraph, and
