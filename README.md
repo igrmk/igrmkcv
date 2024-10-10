@@ -31,6 +31,31 @@ The following CV has been compiled from the [examples/igrmk-net.tex](examples/ig
    tectonic john.doe.tex
    ~~~
 
+## Test your CV
+
+1. We don't fully understand how Applicant Tracking Systems (ATS) work, but
+   it’s clear that the first step is for them to correctly parse your CV.
+   There are various parsers available. In PDFs created by \*TeX flavors,
+   spaces are not explicitly encoded in the text. As a result, multiple PDF
+   parsers and viewers must use heuristics to determine where spaces should be.
+
+   For instance, a parser like `mutool` handles this perfectly, while macOS
+   Preview often struggles with accurately defining word, paragraph, and
+   column boundaries. Obviously, ATSs can encounter the same problems.
+
+   To test this, I recommend copying the text from your PDF using multiple
+   PDF viewers and pasting it into a text editor to verify accuracy. You may
+   find that some lines are merged without spaces. If this happens, try
+   rephrasing those lines. Unfortunately, there is no reliable way in LaTeX
+   to completely prevent this issue.
+
+   You can also use various tools, like `mutool`, to verify proper parsing.
+
+2. To evaluate your CV, you can use services like [Resume Worded](https://resumeworded.com/).
+   While some of their suggestions may seem extreme — such as recommending numbers
+   in every bullet point or using overly long, AI-generated phrases — the service
+   is generally useful overall.
+
 ## Internals
 
 1. Vector icons were chosen over the Font Awesome font because the font
